@@ -1,0 +1,26 @@
+import random
+
+secret = random.randint(1, 100)
+attempts = 0
+
+while True:
+    try:
+        guess = int(input("Guess a number between 1 and 100: "))
+        attempts += 1
+
+        if guess < 1 or guess > 100:
+            raise ValueError("Guess must be between 1 and 100")
+
+        if guess < secret:
+            print("Too low")
+
+        elif guess > secret:
+            print("Too high")
+
+        else:
+            print("You guessed right!")
+            print("Attempts:", attempts)
+            break
+
+    except ValueError as e:
+        print("Invalid input:", e)
